@@ -28,7 +28,12 @@ bayeux.on('subscribe', (clientId, channel) => {
     console.log(`Client ${clientId} subscribed to ${channel}`);
 });
 
-// Start the HTTP server
-server.listen(8080, '192.168.29.69', () => {
-    console.log('Faye server is running on http://192.168.29.69:8080/faye');
+// // Start the HTTP server
+// server.listen(8080, '192.168.29.69', () => {
+//     console.log('Faye server is running on http://192.168.29.69:8080/faye');
+// });
+
+
+server.listen(process.env.PORT || 8080, () => {
+    console.log(`Faye server is running on http://localhost:${process.env.PORT || 8080}/faye`);
 });
